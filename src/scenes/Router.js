@@ -16,6 +16,7 @@ import ProfileScreen from './Users/ProfileScreen.js';
 import CreateAccount from './Users/CreateAccountScreen.js';
 
 import styles from '../config/styles.js';
+import Map from '../components/Map.js';
 
 const List = createStackNavigator({
     CharactersList: {
@@ -61,6 +62,12 @@ const Profile = createStackNavigator({
         screen: CreateAccount,
         navigationOptions: {
             title: 'Create Account'
+        }
+    },
+    MapScreen: {
+        screen: Map,
+        navigationOptions: {
+            title: 'Your location'
         }
     }
 })

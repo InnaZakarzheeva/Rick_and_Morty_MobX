@@ -4,8 +4,7 @@ import {
     View, 
     Dimensions,
     Text,
-    TouchableOpacity,
-    AsyncStorage
+    TouchableOpacity
 } from 'react-native';
 import { HelperText, TextInput, Button } from 'react-native-paper';
 import styles from '../../config/styles.js';
@@ -33,7 +32,9 @@ class LogInScreen extends React.Component{
     logIn = () => {
         const{ email, password } = this.state;
         this.props.users.signIn(email, password);
-        this.props.navigation.navigate('ProfileScreen')
+        if(!this.props.users.emailError && !this.props.users.passwordError) {
+            this.props.navigation.navigate('ProfileScreen')
+        }
     }
     render() {
         const { emailError, passwordError } = this.props.users;
