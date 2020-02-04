@@ -7,30 +7,23 @@ import styles from '../../config/styles.js'
 
 class CharactersFilterScreen extends React.Component{
     handleMaleGender = () => {
-        this.props.charactersStores.filterByGender('male');
-        this.props.charactersStores.changeCheckedGender('male')
+        this.props.charactersStore.filterByGender('male');
+        this.props.charactersStore.changeCheckedGender('male')
     }
     handleFemaleGender = () => {
-        this.props.charactersStores.filterByGender('female');
-        this.props.charactersStores.changeCheckedGender('female')
+        this.props.charactersStore.filterByGender('female');
+        this.props.charactersStore.changeCheckedGender('female')
     }
     handleAllGender = () => {
-        this.props.charactersStores.filterByGender('');
-        this.props.charactersStores.changeCheckedGender('all')
+        this.props.charactersStore.filterByGender('');
+        this.props.charactersStore.changeCheckedGender('all')
     }
     doneFilter = () => {
-        const { male, female, all } = this.props.charactersStores.genderChecked;
-        if(male == true) {
-            this.props.charactersStores.loadMore(1, 'male');
-        } else if(female == true) {
-            this.props.charactersStores.loadMore(1, 'female');
-        } else if(all == true) {
-            this.props.charactersStores.loadMore(1, '');
-        }
+        this.props.charactersStore.loadMore();
         this.props.navigation.navigate('CharactersList')
     }
     render(){
-        const { male, female, all } = this.props.charactersStores.genderChecked;
+        const { male, female, all } = this.props.charactersStore.genderChecked;
         return(
             <View>
                 <CheckBox title='Male' 
@@ -45,7 +38,7 @@ class CharactersFilterScreen extends React.Component{
                     checked={all}
                     onPress={() => this.handleAllGender()}
                 />
-                <Button title='Done' raised
+                <Button title='DONE' raised
                     onPress={() => this.doneFilter()}
                     style={styles.filterButton}
                 />
@@ -55,4 +48,4 @@ class CharactersFilterScreen extends React.Component{
     }
 }
 
-export default inject('charactersStores')(observer(CharactersFilterScreen));
+export default inject('charactersStore')(observer(CharactersFilterScreen));

@@ -1,48 +1,68 @@
-import { StyleSheet } from 'react-native';
+import { StyleSheet, Dimensions } from 'react-native';
 
 const styles = StyleSheet.create({
     //CHARACTERS LIST
+    errorScreenWrapper: {
+        flex: 1, 
+        alignItems: 'center', 
+        justifyContent: 'center'
+    },
+    errorText: {
+        color: '#A9A9A9', 
+        fontSize: 20
+    },
+    loadingCharactersScreen: {
+        color: '#000', 
+        height: Dimensions.get('screen').height * 0.8
+    },
     filterButton: {
         width: '97%',
         alignSelf: 'center',
         height: 50
     },
     textWrapperList: {
-        flex: 1,
+        width: '100%',
+        justifyContent: 'space-between',
         alignItems: 'center',
         height: 120,
         flexDirection: 'row',
         paddingLeft: '2%',
     },
     textWrapperTable: {
-        flex: 1,
-        justifyContent: 'space-around',
+        width: 130,
+        justifyContent: 'space-evenly',
         height: 150,
         flexDirection: 'column',
         paddingLeft: '5%'
     },
+    textTable: {flexWrap: 'wrap'},
     imageList: {
         width: 100,
-        height: 100
+        height: 100,
+        backgroundColor: '#d3d3d3'
     },
-    favoriteWrapper: {
+    characterWrapper: {
         width: '75%',
         flexDirection: 'row',
         justifyContent: 'space-between'
     },
-    characterWrapper: {
-        marginLeft: '5%',
+    textWrapper: {
+        width: '50%',
         justifyContent: 'center',
-        flexDirection: 'column'
+        flexDirection: 'column',
+        flexWrap: 'wrap'
     },
     titleTextList: {
+        width: '100%',
         fontSize: 20,
-        fontWeight: '500'
+        fontWeight: '500',
+        flexWrap: 'wrap',
+        width: '80%'
     },
     text: {
         fontSize: 18,
-        padding: 5,
-        paddingLeft: 20
+        paddingLeft: 20,
+        padding: 5
     },
     checkBox: {
         width: 25, 
@@ -52,6 +72,17 @@ const styles = StyleSheet.create({
         height: 2,
         width: '100%',
         backgroundColor: '#CED0CE'
+    },
+
+    modalWrapper: {
+        flex: 1, 
+        justifyContent: 'flex-end', 
+        flexDirection: 'column'
+    },
+    modalButtonWrapper: {
+        backgroundColor: '#fff', 
+        paddingBottom: '5%', 
+        paddingTop: '5%'
     },
     //DETAILS SCREEN
     imageCharacter: {
@@ -70,7 +101,7 @@ const styles = StyleSheet.create({
         fontSize: 18,
         padding: 5,
         paddingLeft: 20,
-        fontWeight: '100', 
+        fontWeight: '100',
         textAlign: 'center'
     },
     detailWrapper: {
@@ -93,6 +124,26 @@ const styles = StyleSheet.create({
         textAlign: 'center',
         marginTop: '5%'
     },
+    noResultsWrapper: {
+        flex: 1,
+        justifyContent: 'center',
+        alignItems: 'center',
+        flexDirection: 'column'
+    },
+    searchTextWrapper: {
+        width: '70%',
+        flexDirection: 'column'
+    },
+    titleTextSearch: {
+        fontSize: 20,
+        fontWeight: '500'
+    },
+    textSearch: {
+        color: '#A9A9A9',
+        fontSize: 18,
+        textAlign: 'center',
+        marginTop: '2%'
+    },
     //LOGIN SCREEN && CREATE ACCOUNT SCREEN
     registrationWrapper: {
         flex: 1,
@@ -101,7 +152,6 @@ const styles = StyleSheet.create({
     },
     loginInput: {
         height: 50,
-        borderBottomWidth: 1,
         fontSize: 14,
         width: '80%',
         marginBottom: '2%',
@@ -126,22 +176,23 @@ const styles = StyleSheet.create({
     imageRegistration: {
         height: 200, 
         width: 200,
-        marginTop: '5%'
+        marginTop: '5%',
+        borderRadius: 10
     },
     placesTitleText: {
-        width: '80%',
-        fontSize: 20,
-        color: "#A9A9A9",
-        marginBottom: '5%'
-    },
-    placesText: {
-        color: '#147efb',
-        fontSize: 18
+        width: '75%',
+        fontSize: 16,
+        color: "#A9A9A9"
     },
     buttonPlacesWrapper: {
         width: '100%',
         justifyContent: 'space-evenly',
         flexDirection: 'row'
+    },
+    facebookButton: {
+        height: 40, 
+        width: Dimensions.get('window').width * 0.8, 
+        justifyContent: 'center'
     },
     //PROFILE
     profileWrapper: {
@@ -157,9 +208,16 @@ const styles = StyleSheet.create({
         marginTop: '5%'
     },
     profileInformationWrapper: {
+        width: '100%',
         flexDirection: 'column',
         height: '70%', 
-        justifyContent: 'space-evenly'
+        justifyContent: 'space-evenly',
+        alignItems: 'center'
+    },
+    placesText: {
+        width: '80%',
+        flexWrap: 'wrap',
+        fontSize: 16
     },
     //ROUTER
     iconTabBar: {
@@ -175,6 +233,19 @@ const styles = StyleSheet.create({
         fontSize: 16,
         textAlign: 'center'
     },
+    //MAP CHARACTERS
+    mapWrapper: {
+        padding: 4,
+        backgroundColor: '#fff',
+        borderRadius: 12,
+        borderWidth: 1,
+        borderColor: '#eee',
+    },
+    mapImage: { 
+        width: 50, 
+        height: 50, 
+        borderRadius: 8 
+    }
 });
 
 export default styles;
